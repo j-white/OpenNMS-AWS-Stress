@@ -1,0 +1,22 @@
+<model-import xmlns="http://xmlns.opennms.org/xsd/config/model-import" date-stamp="2016-12-13T17:08:36.807Z" foreign-source="Full">
+   {% for ip in groups['tag_OnmsLabInstanceType_postgres'] %}
+   <node foreign-id="{{ hostvars[ip]['ec2_id'] }}" node-label="postgresql-{{ hostvars[ip]['ec2_ami_launch_index'] }}">
+      <interface ip-addr="{{ hostvars[ip]['ec2_private_ip_address'] }}" snmp-primary="P">
+         <monitored-service service-name="PostgreSQL"/>
+      </interface>
+   </node>
+   {% endfor %}
+   {% for ip in groups['tag_OnmsLabInstanceType_opennms'] %}
+   <node foreign-id="{{ hostvars[ip]['ec2_id'] }}" node-label="opennms-{{ hostvars[ip]['ec2_ami_launch_index'] }}">
+      <interface ip-addr="{{ hostvars[ip]['ec2_private_ip_address'] }}" snmp-primary="P"/>
+   </node>
+   {% endfor %}
+   {% for ip in groups['tag_OnmsLabInstanceType_cassandra'] %}
+   <node foreign-id="{{ hostvars[ip]['ec2_id'] }}" node-label="cassandra-{{ hostvars[ip]['ec2_ami_launch_index'] }}">
+      <interface ip-addr="{{ hostvars[ip]['ec2_private_ip_address'] }}" snmp-primary="P">
+         <monitored-service service-name="JMX-Cassandra"/>
+         <monitored-service service-name="JMX-Cassandra-Newts"/>
+      </interface>
+   </node>
+   {% endfor %}
+</model-import>
