@@ -340,7 +340,7 @@ seed_provider:
       parameters:
           # seeds is actually a comma-delimited list of addresses.
           # Ex: "<ip1>,<ip2>,<ip3>"
-          - seeds: "{{ hostvars[groups['tag_OnmsLabInstanceType_cassandra'][0]]['ec2_private_ip_address'] }}"
+          - seeds: "{% for host in groups['tag_OnmsLabInstanceType_cassandra'] %}{% if not loop.first %},{% endif %}{{ hostvars[host]['ec2_private_ip_address'] }}{% endfor %}"
 
 # For workloads with more data than can fit in memory, Cassandra's
 # bottleneck will be reads that need to fetch data from

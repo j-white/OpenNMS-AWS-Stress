@@ -11,7 +11,7 @@
             <parameter key="timeout" value="3000"/>
             <parameter key="protocol" value="rmi"/>
             <parameter key="urlPath" value="/jmxrmi"/>
-            <parameter key="collection" value="jmx-cassandra30x"/>
+            <parameter key="collection" value="cassandra30x"/>
             <parameter key="friendly-name" value="cassandra"/>
             <parameter key="thresholding-enabled" value="true"/>
             <parameter key="factory" value="PASSWORD-CLEAR"/>
@@ -24,7 +24,7 @@
             <parameter key="timeout" value="3000"/>
             <parameter key="protocol" value="rmi"/>
             <parameter key="urlPath" value="/jmxrmi"/>
-            <parameter key="collection" value="jmx-cassandra30x-newts"/>
+            <parameter key="collection" value="cassandra30x-newts"/>
             <parameter key="friendly-name" value="cassandra-newts"/>
             <parameter key="thresholding-enabled" value="true"/>
             <parameter key="factory" value="PASSWORD-CLEAR"/>
@@ -161,9 +161,7 @@
             <parameter key="collection" value="PostgreSQL"/>
             <parameter key="thresholding-enabled" value="true"/>
             <parameter key="driver" value="org.postgresql.Driver"/>
-            <parameter key="user" value="postgres"/>
-            <parameter key="password" value="postgres"/>
-            <parameter key="url" value="jdbc:postgresql://OPENNMS_JDBC_HOSTNAME:5432/opennms"/>
+            <parameter key="data-source" value="opennms-admin"/>
         </service>
 
         <service name="Elasticsearch" interval="30000" user-defined="false" status="on">

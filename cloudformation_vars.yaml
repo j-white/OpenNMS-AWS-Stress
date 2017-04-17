@@ -1,7 +1,7 @@
-KeyName: "agalue@thesith"
-CassandraInstanceType: "m4.2xlarge"
-OpenNMSInstanceType: "m4.2xlarge"
+KeyName: "jesse@noise"
+CassandraInstanceType: "i2.2xlarge"
+OpenNMSInstanceType: "m4.4xlarge"
 PostgreSQLInstanceType: "m4.xlarge" 
-CassandraCount: 3
-OpenNMSCount: 5
+CassandraCount: 5
+OpenNMSCount: 1
 Region: "us-east-1"
